@@ -1,1 +1,17 @@
-my programs. For now it is python only but I'll get better at some point I'm like tracking my progress:3
+# Coding-stuff
+
+A collection of my programming projects and experiments.
+
+## About
+
+This repository contains stuff I build while learning programming:3 
+
+
+## Languages
+
+- Python(for now:3)
+
+
+## Notes
+
+Most of my  projects are  learning exercises so nothing too advanced yet.
