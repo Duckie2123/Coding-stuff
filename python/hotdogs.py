@@ -1,16 +1,17 @@
 import random
 from time import sleep
 
-revenue=0
+revenue_day=0
 revenue_lost=0
 revenue_week=0
 revenue_lost_week=0
 revenue_everything=0
 revenue_everything_loss=0
+hotdogs_bought=0
 
 
 def hotdogs():
-    global revenue, revenue_lost, revenue_week, revenue_lost_week, revenue_everything, revenue_everything_loss
+    global revenue_day, revenue_lost, revenue_week, revenue_lost_week, revenue_everything, revenue_everything_loss
     hotdogs_available=[]
     hotdogs_random=random.randint(1,51)
     hotdogs_available.append(hotdogs_random)
@@ -20,31 +21,27 @@ def hotdogs():
     customers_random=random.randint(1, 101)
     customers.append(customers_random)
     overflow_customers=0
-    revenue_week=0
-    revenue_lost_week=0
-    revenue_everything_loss=0
-    revenue_everything=0
     if customers[0]>hotdogs_available[0]:
-        revenue=hotdogs_available[0]*(hotdog_price-hotdog_cost)
-        print(f"You made ${revenue} in revenue but...")
+        revenue_day=hotdogs_available[0]*(hotdog_price-hotdog_cost)
+        print(f"You made ${revenue_day} in revenue but...")
         sleep(1.3)
         overflow_customers=customers[0]-hotdogs_available[0]
         revenue_lost=overflow_customers*(hotdog_price-hotdog_cost)
         revenue_lost_week+=revenue_lost
         revenue_everything_loss+=revenue_lost_week
-        revenue_week+=revenue
+        revenue_week+=revenue_day
         revenue_everything+=revenue_week
         print(f"You lost {overflow_customers} customers and ${revenue_lost} in revenue. Let's push to the end of the week...")
         sleep(1.3)
     elif customers[0]<hotdogs_available[0]:
-        revenue=hotdogs_available[0]*(hotdog_price-hotdog_cost)
-        revenue_week+=revenue
+        revenue_day=hotdogs_available[0]*(hotdog_price-hotdog_cost)
+        revenue_week+=revenue_day
         revenue_everything+=revenue_week
         revenue_lost=overflow_customers*(hotdog_price-hotdog_cost)
         revenue_lost_week+=revenue_lost
         revenue_everything_loss+=revenue_lost_week
         sleep(1.3)
-        print(f"YAY! You made ${revenue} in revenue without losing money. Lets do this  again for the entire week to get more money:3")
+        print(f"YAY! You made ${revenue_day} in revenue without losing money. Lets do this  again for the entire week to get more money:3")
         sleep(1.3)
 
         
