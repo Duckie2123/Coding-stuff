@@ -7,7 +7,7 @@ if net_profit>0:
     print('maybe this is working after all')
     print('btw you made $',net_profit,',good boy')
 elif net_profit<-500:
-    print('you are in deep shit nigga. Kill yourself')
+    print('you are in deep shit bro.')
     print('btw you lost $',-net_profit,)
 else:
     print('maybe this is not working after all. I suggest getting a job')
