@@ -26,7 +26,7 @@ class Shopping_cart:
 cart=Shopping_cart()
 
 while True:
-    command=input("What do you want to do (add to cart, checkout, save cart, load cart, see cart, exit)? ")
+    command=input("What do you want to do (add to cart, checkout, see cart, exit)? ")
     
     if command=="add to cart":
         cart.add_to_cart()
