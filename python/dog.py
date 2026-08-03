@@ -14,8 +14,8 @@ class Dog:
         print(f"Dog's hunger level: {self.hunger_level}")
 
     def update(self):
-        current_time = time.time()
-        time.sleep(0.1)  # Sleep for 0.1 to avoid high CPU usage
+        time.sleep(0.1) # Sleep for 0.1 to avoid high CPU usage
+        current_time = time.time()  
         if current_time - self.last_feed >= 5:
             self.hunger_level += 1
             self.last_feed = current_time
@@ -28,11 +28,13 @@ class Dog:
         self.last_feed = time.time()
         print(f"{self.name} has been fed {food}. Hunger level reset to 0.")
     
-    def aged(self):#ages the dog by 1 year
-        if self.last_feed - self.last_aged >= 10: #ages the dog every 10 seconds
+    def aged(self):#ages the dog by 1 year 
+        if time.time() - self.last_aged >= 10: #ages the dog every 10 seconds
             self.age += 1
             self.last_aged = time.time()
         print(f"Dog's age: {self.age}")
+        
+
 
 
 
@@ -40,8 +42,11 @@ class Dog:
 
 x=Dog("Buddy",0)
 
+
+
 while True: #checks if the dog is hungry every 5 seconds and prompts the user to feed the dog or check its stats
     x.update()
+    
     
     command = input("> ")
 
@@ -65,8 +70,11 @@ while True: #checks if the dog is hungry every 5 seconds and prompts the user to
             x = pickle.load(f)
         print("Dog's state loaded.")
     
-    elif command != "feed" and command != "stats" and command != "exit" and command != "save" and command != "load":
-        print("Invalid command. Please enter 'feed', 'stats', 'exit', 'save', or 'load'.")
+    elif command == "exit":
+        break
+    
+    else:
+        print("Invalid command. Please enter 'feed', 'stats', 'exit', 'save', 'load', or 'exit'.")
 
 
 
