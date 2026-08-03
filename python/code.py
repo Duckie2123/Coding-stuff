@@ -1,15 +1,33 @@
-actual_code="Money:3"
-code=str(input("Type password:"))
-password_attempts=1
+class code:
+    def __init__(self, name, login):
+        self.login=login
+        self.name = name
+    
+    def greet(self):
+        return f"Hello, {self.name}!"
+    
+    def code(self):
+        login=input("Enter your login code: ")
+        if login == self.login:
+            return "Welcome back!"
+        else:
+            return "Wrong password. Try again."
+    
+    def logout(self):
+        return "You have been logged out."
 
-while code!=actual_code:
-    print("try again bro")
-    password_attempts+=1
-    code=str(input("Type password:"))
-    if password_attempts==5:
-        print("damn bro, you are out of attempts")
+y=code("Bleh", "5690")
+
+while True:
+    command = input("> ")
+    
+    if command == "greet":
+        print(y.greet())
+    elif command == "code":
+        print(y.code())
+    elif command == "logout":
+        print(y.logout())
         break
 
-if code==actual_code:
-    print("Good boy or something")
-    
+    else:
+        print("Invalid command.")
