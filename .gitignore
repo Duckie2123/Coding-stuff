@@ -19,3 +19,6 @@ Thumbs.db
 
 # Workspaces
 *.code-workspace
+
+#pickle files
+*.pkl
