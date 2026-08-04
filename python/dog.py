@@ -70,9 +70,6 @@ while True: #checks if the dog is hungry every 5 seconds and prompts the user to
             x = pickle.load(f)
         print("Dog's state loaded.")
     
-    elif command == "exit":
-        break
-    
     else:
         print("Invalid command. Please enter 'feed', 'stats', 'exit', 'save', 'load', or 'exit'.")
 
