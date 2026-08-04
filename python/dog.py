@@ -17,7 +17,7 @@ class Dog:
 
     def update(self):
         while True:
-            time.sleep(1) # Sleep for 0.1 to avoid high CPU usage
+            time.sleep(1)
             current_time = time.time()  
             if current_time - self.last_feed >= 5:
                 self.hunger_level += 1
