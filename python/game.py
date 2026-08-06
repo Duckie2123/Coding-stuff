@@ -19,7 +19,7 @@ class Player(Character_attributes):
     def take_dmg(self, damage, attacker_name):
         self.dmg_taken = damage
         self.hp -= self.dmg_taken
-        if self.hp < 0:
+        if self.hp <= 0:
             self.hp = 0
         print(f"{self.name} has been attacked by {attacker_name} losing {self.dmg_taken} HP!\n HP: {self.hp}/{self.max_hp}\n")
 
@@ -31,7 +31,7 @@ class Enemy(Character_attributes):
     def take_dmg(self, damage, attacker_name):
         self.dmg_taken = damage
         self.hp -= self.dmg_taken
-        if self.hp < 0:
+        if self.hp <= 0:
             self.hp = 0
         print(f"{self.name} has been attacked by {attacker_name} losing {self.dmg_taken} HP!\n HP: {self.hp}/{self.max_hp}\n")
     
