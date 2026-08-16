@@ -22,3 +22,6 @@ Thumbs.db
 
 #pickle files
 *.pkl
+
+# temp files from uploading to my google drive
+*.tmp.driveupload
