@@ -25,3 +25,4 @@ Thumbs.db
 
 # temp files from uploading to my google drive
 *.tmp.driveupload
+*.tmp.drivedownload
