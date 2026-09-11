@@ -1,6 +1,6 @@
 # Coding-stuff 
 
-> A collection of random Python scripts and experiments :3
+> A collection of random Python, C++ scripts and experiments :3
 
 ---
 
@@ -13,6 +13,7 @@ Just some fun practice scripts I've made while learning Python:
 - **`rock_paper_scissors.py`** – Best-of-3 Rock, Paper, Scissors game against the CPU.
 - **`hotdogs.py`** – A hotdog stand sim that calculates daily profit and lost customers.
 - **`bank.py`** & **`shopping_cart.py`** – Mini banking and store checkout practice.
+- C++ programs too now:D (Just practice ones for now:3)
 - ...plus a bunch of small math, loops, and logic exercises!
 
 ---
