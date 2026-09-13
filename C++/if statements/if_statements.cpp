@@ -9,7 +9,7 @@ int main(){
     std::cin >>name;
     std::cout<<"Enter password:" << std::endl ;
     std::cin >>password;
-    while (password != "Bleh:3" && name != "Duckie")
+    while (password != "Bleh:3" || name != "Duckie")
     {
         tries++;
         std::cout <<"Wrong password or name. Try again."<< std::endl;
