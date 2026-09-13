@@ -18,11 +18,14 @@ int main(){
         std::cin >>name;
         std::cout <<"Enter password:" << std::endl ;
         std::cin >>password;
-        if (tries == 5)
+        if (tries == 4)
         {
             std::cout << "Locked out. Try again later." << std::endl;
             break;
         }
     }
-    std::cout <<"Ya got in. Yipperssss:D";
+    if (password == "Bleh:3" && name == "Duckie")
+    {
+        std::cout << "Yayyyyy you got in :D" << std::endl;
+    }
 }
