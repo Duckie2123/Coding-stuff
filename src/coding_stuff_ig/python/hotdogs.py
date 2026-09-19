@@ -1,57 +1,49 @@
-import random
+from random import randint
 from time import sleep
 
-revenue_day=0
-revenue_lost=0
-revenue_week=0
-revenue_lost_week=0
-revenue_everything=0
-revenue_everything_loss=0
-hotdogs_bought=0
+class hotdog_stand():
+    def __init__(self):
+        self.hotdog_cost = 4
+        self.hotdog_price = 9
+        self.total_revenue = 0
+        self.total_revenue_lost = 0
 
+    def sell(self):
+        self.total_revenue_day = 0
+        self.total_revenue_lost_day = 0
+        self.overflow_customers = 0
 
-def hotdogs():
-    global revenue_day, revenue_lost, revenue_week, revenue_lost_week, revenue_everything, revenue_everything_loss
-    hotdogs_available=[]
-    hotdogs_random=random.randint(1,51)
-    hotdogs_available.append(hotdogs_random)
-    hotdog_cost=2
-    hotdog_price=4
-    customers=[]
-    customers_random=random.randint(1, 101)
-    customers.append(customers_random)
-    overflow_customers=0
-    if customers[0]>hotdogs_available[0]:
-        revenue_day=hotdogs_available[0]*(hotdog_price-hotdog_cost)
-        print(f"You made ${revenue_day} in revenue but...")
-        sleep(1.3)
-        overflow_customers=customers[0]-hotdogs_available[0]
-        revenue_lost=overflow_customers*(hotdog_price-hotdog_cost)
-        revenue_lost_week+=revenue_lost
-        revenue_everything_loss+=revenue_lost_week
-        revenue_week+=revenue_day
-        revenue_everything+=revenue_week
-        print(f"You lost {overflow_customers} customers and ${revenue_lost} in revenue. Let's push to the end of the week...")
-        sleep(1.3)
-    elif customers[0]<hotdogs_available[0]:
-        revenue_day=hotdogs_available[0]*(hotdog_price-hotdog_cost)
-        revenue_week+=revenue_day
-        revenue_everything+=revenue_week
-        revenue_lost=overflow_customers*(hotdog_price-hotdog_cost)
-        revenue_lost_week+=revenue_lost
-        revenue_everything_loss+=revenue_lost_week
-        sleep(1.3)
-        print(f"YAY! You made ${revenue_day} in revenue without losing money. Lets do this  again for the entire week to get more money:3")
-        sleep(1.3)
+        hotdogs_number = randint(20,51)
+        customers_number = randint(10,80)
 
-        
-for i in range(1,8):
-    hotdogs()
+        if customers_number>hotdogs_number:
+            self.overflow_customers=customers_number-hotdogs_number
+            self.total_revenue_day+=(customers_number-self.overflow_customers)*(self.hotdog_price-self.hotdog_cost)
+            self.total_revenue+=self.total_revenue_day
+            self.total_revenue_lost_day=self.overflow_customers*(self.hotdog_price-self.hotdog_cost)
+            self.total_revenue_lost+=self.total_revenue_lost_day
+            print(f"You lost ${self.total_revenue_lost_day} due to overflow customers. You can always try again tomorrow... But you've made ${self.total_revenue_day}!\n")
+            sleep(1)
 
+        elif customers_number<hotdogs_number:
+            self.total_revenue_day=customers_number*(self.hotdog_price-self.hotdog_cost)
+            self.total_revenue+=self.total_revenue_day
+            print(f"You've made ${self.total_revenue_day}!\n")
+            print(f"Your total revenue is ${self.total_revenue}\n")
+            print(f"Your total revenue lost is ${self.total_revenue_lost}\n")
+            sleep(1)
 
-sleep(1.3)
-if revenue_week>revenue_lost_week:
-    print(f"We're done for the week:D We made ${revenue_week} and lost ${revenue_lost_week}. Subtracting the losses we made ${revenue_everything}")
-else:
-    revenue_everything_loss=revenue_lost_week-revenue_week
-    print(f"Awh3: We did'nt make any money... We lost ${revenue_everything_loss}")
+    def weekly_revenue(self):
+        return self.total_revenue
+
+Hotdog_Stand = hotdog_stand()
+
+for i in range(7):
+    Hotdog_Stand.sell()
+    print(f"Your total revenue for day {i+1} is ${Hotdog_Stand.total_revenue_day}\n")
+    print(f"Your total revenue lost for day {i+1} is ${Hotdog_Stand.total_revenue_lost_day}\n")
+    sleep(1)
+
+    if i == 6:
+        print(f"Your total revenue for the week is ${Hotdog_Stand.weekly_revenue()}\n")
+        print(f"Your total revenue lost for the week is ${Hotdog_Stand.total_revenue_lost}\n")
