@@ -16,15 +16,15 @@ class bank:
     def withdraw(self):
         try:
             amount = float(input("Enter amount to withdraw: "))
+            if amount < 0:
+                print("Invalid input. Please enter a positive number.")
+            elif amount > self.balance:
+                print("Insufficient funds.")
+            else:
+                self.balance -= amount
+                print(f"Withdrew: {amount}. New balance: {self.balance}")
         except ValueError:
             print("Invalid input. Please enter a number.")
-        if amount > self.balance:
-            print("Insufficient funds.")
-        elif amount < 0:
-            print("Invalid input. Please enter a positive number.")
-        else:
-            self.balance -= amount
-            print(f"Withdrew: {amount}. New balance: {self.balance}")
     
     def check_balance(self):
         print(f"Current balance: {self.balance}")
@@ -42,6 +42,7 @@ while True:
     elif command == "balance":
         Bank.check_balance()
     elif command == "exit":
+        print("Exiting...")
         break
     else:
         print("Invalid command.")

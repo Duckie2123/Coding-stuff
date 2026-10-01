@@ -47,4 +47,4 @@ while True:
         elif operation == "divide":
             result = calc.divide(num1, num2)
             if result is not None:
-                print(f"Result: {calc.divide_result}")
+                print(f"Result: {calc.result}")
