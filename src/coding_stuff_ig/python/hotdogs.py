@@ -1,7 +1,7 @@
 from random import randint
 from time import sleep
 
-class hotdog_stand():
+class hotdog_stand:
     def __init__(self):
         self.hotdog_cost = 4
         self.hotdog_price = 9
@@ -30,11 +30,20 @@ class hotdog_stand():
             self.total_revenue+=self.total_revenue_day
             print(f"You've made ${self.total_revenue_day}!\n")
             print(f"Your total revenue is ${self.total_revenue}\n")
-            print(f"Your total revenue lost is ${self.total_revenue_lost}\n")
+            sleep(1)
+
+        elif customers_number==hotdogs_number:
+            self.total_revenue_day=customers_number*(self.hotdog_price-self.hotdog_cost)
+            self.total_revenue+=self.total_revenue_day
+            print(f"You've made ${self.total_revenue_day}!\n")
+            print(f"Your total revenue is ${self.total_revenue}\n")
             sleep(1)
 
     def weekly_revenue(self):
         return self.total_revenue
+
+    def get_total_revenue_lost(self):
+        return self.total_revenue_lost
 
 Hotdog_Stand = hotdog_stand()
 
@@ -46,4 +55,4 @@ for i in range(7):
 
     if i == 6:
         print(f"Your total revenue for the week is ${Hotdog_Stand.weekly_revenue()}\n")
-        print(f"Your total revenue lost for the week is ${Hotdog_Stand.total_revenue_lost}\n")
+        print(f"Your total revenue lost for the week is ${Hotdog_Stand.get_total_revenue_lost()}\n")
